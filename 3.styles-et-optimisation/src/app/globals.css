@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant pink (&:where(.pink, .pink *));
+
+@layer base {
+    /* palette centrale */
+    :root {
+        /* Couleurs brutes */
+        --background: #ffffff;
+        --text: #363636;
+        --purple-light: #5826cc;
+
+        --background-dark: #363636;
+        --text-dark: #ffffff;
+        --purple-dark: #cb5bcf;
+
+        --background-pink: #ffeaf2;
+        --text-pink: #7a004b;
+        --purple-pink: #e91e63;
+
+        /* Couleurs actives par défaut */
+        --color-background: var(--background);
+        --color-foreground: var(--text);
+        --color-titre1: var(--purple-light);
+    }
+
+    /* Couleurs actives en mode sombre */
+    .dark {
+        --color-background: var(--background-dark);
+        --color-foreground: var(--text-dark);
+        --color-titre1: var(--purple-dark);
+    }
+
+    /* Couleurs actives en mode rose */
+    .pink {
+        --color-background: var(--background-pink);
+        --color-foreground: var(--text-pink);
+        --color-titre1: var(--purple-pink);
+    }
+
+    /* Application des couleurs */
+    html {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+    }
+
+    h1,
+    h2 {
+        color: var(--color-titre1);
+    }
+}
+
+/* CSS custom */
+body {
+    font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
+}
